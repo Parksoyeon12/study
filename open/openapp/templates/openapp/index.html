@@ -1,0 +1,15 @@
+<h1> 네이버 뉴스 검색 API</h1>
+
+  <form action="{% url 'news:api_search' %}" method="GET">
+      <input type="text" name="q" placeholder="검색">
+      <input type="submit" value="검색">
+  </form>
+  <div>
+  {% for item in items %}
+      <ul>
+          <div>{{ forloop.counter }}
+             : {{ item.title|safe }} <br>( {{item.pubDate}} ) <br> 내용 : {{ item.description  }}<br><a href = "{{item.originallink}}">자세하 보기</a>
+        </div>
+      </ul>
+  {% endfor %}
+  </div>
